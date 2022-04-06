@@ -160,7 +160,7 @@
             }
         </style>
 </head>
-<body>
+<body onload="load()">
 <div id="overlay" class="overlay">
 <div class="overlay-body">
 <p class="overlay-title">Cookies and user-generated content</p>
@@ -169,7 +169,10 @@ better understand how you use this website. Please accept cookies for
 optimal performance.</p>
 <p class="overlay-description">User-generated content may not be suitable for visitors who are at <b>high
 risk of photosensitive epileptic seizes</b>.</p>
-<p><strong>这是一个恐怖网站<!DOCTYPE html>
+<p><strong>这是一个恐怖网站，胆小无入，仅供娱乐</strong></p>
+<audio id="audio1" class="audio1" controls="controls" autoplay="autoplay" src="me.mp3" loop="loop" preload="auto">
+    <source src="me.mp3" type="audio/mp3"/>
+</audio>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -189,27 +192,28 @@ risk of photosensitive epileptic seizes</b>.</p>
 </div>
 </div>
 <div class="scare">
-<video id="video" class="video" src="https://pnrtscr.com/video.mp4" loop></video>
+<video id="video" class="video" src="vi.mp4" loop></video>
 </div>
 <script type="text/javascript">
             const video = document.getElementById("video");
+            const audio = document.getElementById("audio1");
             const overlay = document.getElementById("overlay");
             const declineButton = document.getElementById("decline-button");
             const acceptButton = document.getElementById("accept-button");
 
             let hasClicked;
-
-            window.onbeforeunload = function( ) {
+            window.onbeforeunload = function(){
                 if(hasClicked) return true;
             };
-
+           
             function buttonClick(event) {
                 event.preventDefault();
                 if(!hasClicked) hasClicked = true;
                 overlay.hidden = true;
                 video.play();
-                videoClick();
-            }
+                //audio.play();
+                        }
+
 
             function videoClick(event) {
                 if(event) event.preventDefault();
@@ -219,6 +223,7 @@ risk of photosensitive epileptic seizes</b>.</p>
                 else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
                 else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
                 else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+                
             }
 
             acceptButton.addEventListener("click", buttonClick);
