@@ -241,7 +241,7 @@ function loop() {
 	ctx.globalCompositeOperation = 'lighter';
 	
     var text = "热烈庆祝何某成为新班长!!";  
-  ctx.font = "50px sans-serif";
+  ctx.font = "80px sans-serif";
   var textData = ctx.measureText(text);
   ctx.fillStyle = "rgba("+parseInt(random(0,255))+","+parseInt(random(0,255))+","+parseInt(random(0,255))+",0.3)";
   ctx.fillText(text,cw /2-textData.width/2,ch/2); 
